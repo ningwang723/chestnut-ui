@@ -1,3 +1,19 @@
 # Chestnut UI
 
 Chestnut UI 是一个为 Laravel Chestnut 资源管理系统开发的开源的组件库。
+
+## 使用方式
+
+首先安装组件库
+
+### yarn
+
+`yarn add @chestnut/ui`
+
+### npm
+
+`npm install @chestnut/ui`
+
+然后在你的项目里导入组件
+
+`import {Button} from '@chestnut/ui'`
