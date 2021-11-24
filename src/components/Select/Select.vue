@@ -6,11 +6,11 @@
                 v-for="(option, index) in filtered"
                 :key="option"
                 @click="handleSelected(option, index)"
-                :class="{ 'is-selected': isSelected(option) }"
+                :class="{ 'is-selected': isSelected(option, index) }"
             >
                 <slot
                     :option="option"
-                    :selected="isSelected(option)"
+                    :selected="isSelected(option, index)"
                 >{{ showOption(option, index) }}</slot>
             </DropdownItem>
             <template v-if="searchable" #activator="{ show }">
@@ -44,7 +44,6 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import { isObject } from '../../utils';
 import Dropdown from '../Dropdown/Dropdown.vue';
 import DropdownItem from '../Dropdown/DropdownItem.vue';
 import Text from '../Text/Text.vue';
@@ -54,10 +53,7 @@ const props = defineProps({
         type: null,
         required: true
     },
-    options: {
-        type: Array,
-        required: true
-    },
+    options: null,
     searchable: Boolean,
     placeholder: {
         type: String,
@@ -73,7 +69,7 @@ const emit = defineEmits(["update:modelValue"])
 const handleSelected = (option, index) => {
     search.value = undefined;
 
-    emit("update:modelValue", isObject(option) ? option : index);
+    emit("update:modelValue", Object.prototype.toString.call(option) === '[object Object]' ? option : index);
 }
 
 const searched = computed({
@@ -96,27 +92,31 @@ const searched = computed({
 const filtered = computed(() => {
     if (search.value !== undefined && search.value !== '') {
         return props.options.filter(option => {
-            return isObject(option) ? option.text == search.value : option == search.value;
+            return option !== null && option && Object.prototype.toString.call(option) === '[object Object]' ? option.text == search.value : option == search.value;
         });
     }
 
     return props.options;
 })
 
-const isSelected = (option) => {
-    return option === props.modelValue;
+const isSelected = (option, index) => {
+    if (Object.prototype.toString.call(option) === '[object Object]') {
+        return option === props.modelValue
+    }
+
+    return index === props.modelValue
 }
 
-const showOption = (option) => {
+const showOption = (option, index) => {
     if (option === undefined || option === null || option === '') {
         return props.placeholder;
     }
 
-    if (isObject(option)) {
+    if (Object.prototype.toString.call(option) === '[object Object]') {
         return option.text;
     }
 
-    return props.options[option] || option;
+    return props.options[index] || props.options[option] || option;
 }
 </script>
 

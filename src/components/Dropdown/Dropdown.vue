@@ -27,7 +27,6 @@ const show = (show = true) => {
 }
 
 const toggle = () => {
-    console.log(active.value)
     active.value = !active.value
 }
 

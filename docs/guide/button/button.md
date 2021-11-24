@@ -65,6 +65,7 @@
 
 <ButtonExample type="outlined" />
 
+
 ### Text
 
 ```vue
@@ -87,6 +88,7 @@
 ```
 
 <ButtonExample type="text" />
+
 
 <script setup>
 import ButtonExample from './ButtonExample.vue'

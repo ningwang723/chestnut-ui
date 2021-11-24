@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { computed, ref, useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue';
 import Uploader from './Uploader.vue';
 
 const props = defineProps({
@@ -43,7 +43,7 @@ const selected = computed({
             return !props.multiple ? null : [];
         }
 
-        const files = Array.isArray(props.modelValue) ? props.modelValue : [props.modelValue];
+        const files = Object.prototype.toString.call(props.modelValue) === '[object Array]' ? props.modelValue : [props.modelValue];
 
         return !props.multiple ? files[0] : files;
     },
@@ -53,7 +53,7 @@ const selected = computed({
             return;
         }
 
-        if (props.modelValue !== undefined && Array.isArray(props.modelValue)) {
+        if (props.modelValue !== undefined && Object.prototype.toString.call(props.modelValue) === '[object Array]') {
             const files = props.modelValue.concat(val);
 
             return emit("update:modelValue", files);

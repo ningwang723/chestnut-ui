@@ -24,7 +24,8 @@
     </div>
 ```
 
-<SelectExample/>
+<SelectExample />
+
 
 <script setup>
 import SelectExample from './SelectExample.vue'

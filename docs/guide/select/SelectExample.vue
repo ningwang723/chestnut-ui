@@ -1,9 +1,11 @@
 <template>
     <div style="display:grid; gap:8px">
-        <Select :options="options" v-model="value" />
-        <Select :options="options" v-model="value" disabled />
-        <Select :options="options" v-model="value" searchable />
-        <Select :options="options" v-model="value" searchable disabled />
+        <ClientOnly>
+            <Select :options="options" v-model="value" />
+            <Select :options="options" v-model="value" disabled />
+            <Select :options="options" v-model="value" searchable />
+            <Select :options="options" v-model="value" searchable disabled />
+        </ClientOnly>
     </div>
 </template>
 <script setup>

@@ -5,8 +5,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { Editor } from '../../../src/index';
-import "@ckeditor/ckeditor5-build-classic/build/translations/zh-cn";
+import { Editor } from "../../../src/index"
 
 const content = ref('https://v3.cn.vuejs.org/logo.png');
 </script>

@@ -2,13 +2,14 @@ module.exports = {
     lang: 'zh-CN',
     title: 'Chestnut UI',
     description: 'Chestnut UI 组件库',
+    base: '/chestnut-ui/',
 
     themeConfig: {
         docsDir: 'docs',
         nav: [
             {
                 text: 'Github',
-                link: 'https://github.com/ningwang723'
+                link: 'https://github.com/ningwang723/chestnut-ui.git'
             }
         ],
         sidebar: [

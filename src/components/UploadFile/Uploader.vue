@@ -64,7 +64,7 @@ const props = defineProps({
         required: true
     },
     modelValue: null,
-    file: [File, String],
+    file: null,
     canRemove: Boolean
 })
 
@@ -74,7 +74,7 @@ const emit = defineEmits(['update:modelValue', 'remove'])
 const src = computed(() => {
     const file = props.modelValue || props.file
 
-    if (file && file instanceof File) {
+    if (Object.prototype.toString.call(file) === '[object File]') {
         return URL.createObjectURL(file);
     }
 
