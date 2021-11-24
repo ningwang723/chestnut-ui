@@ -1,5 +1,5 @@
 {
-  "name": "@chestnut/ui",
+  "name": "@leonshirly/chestnut-ui",
   "version": "0.0.1",
   "description": "Laravel Chestnut ui libarary",
   "repository": "https://github.com/ningwang723/chestnut-ui.git",
@@ -8,20 +8,20 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/ui.umd.js",
-  "module": "./dist/ui.es.js",
+  "main": "./dist/chestnut-ui.umd.js",
+  "module": "./dist/chestnut-ui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/ui.es.js",
-      "require": "./dist/ui.umd.js"
+      "import": "./dist/chestnut-ui.es.js",
+      "require": "./dist/chestnut-ui.umd.js"
     },
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },
-  "unpkg": "./dist/ui.umd.js",
-  "jsdelivr": "./dist/ui.umd.js",
+  "unpkg": "./dist/chestnut-ui.umd.js",
+  "jsdelivr": "./dist/chestnut-ui.umd.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
