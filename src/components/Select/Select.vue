@@ -59,7 +59,11 @@ const props = defineProps({
         type: String,
         default: "-- 请选择 --"
     },
-    disabled: Boolean
+    disabled: Boolean,
+    label: {
+        type: String,
+        default: "text"
+    }
 })
 
 const search = ref(undefined);
@@ -113,7 +117,7 @@ const showOption = (option, index) => {
     }
 
     if (Object.prototype.toString.call(option) === '[object Object]') {
-        return option.text;
+        return option[props.label];
     }
 
     return props.options[index] || props.options[option] || option;

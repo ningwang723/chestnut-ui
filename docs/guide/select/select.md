@@ -7,6 +7,7 @@
 | `disabled` | 是否禁用选择框 | `true` or `false`               | `false`     |
 | `options` | 选项 | `Array` | `required` |
 | `searchable` | 是否允许搜索选项 | `true` or `false` | `false` |
+| `label` | 选项显示内容的属性 | - | `text` |
 
 ## 事件
 
